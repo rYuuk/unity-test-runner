@@ -65,7 +65,14 @@ describe('ImageTag', () => {
     it('returns the specific build platform', () => {
       const image = new ImageTag({ editorVersion: '2019.2.11f1', targetPlatform: 'WebGL' });
 
-      expect(image.toString()).toStrictEqual(`${defaults.image}:ubuntu-2019.2.11f1-webgl-1`);
+      switch (process.platform) {
+        case 'win32':
+          expect(image.toString()).toStrictEqual(`${defaults.image}:windows-2019.2.11f1-webgl-1`);
+          break;
+        case 'linux':
+          expect(image.toString()).toStrictEqual(`${defaults.image}:ubuntu-2019.2.11f1-webgl-1`);
+          break;
+      }
     });
 
     it('returns no specific build platform for generic targetPlatforms', () => {

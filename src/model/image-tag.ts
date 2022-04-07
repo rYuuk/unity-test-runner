@@ -30,7 +30,7 @@ class ImageTag {
     this.editorVersion = editorVersion;
     this.targetPlatform = targetPlatform;
     this.targetPlatformSuffix = ImageTag.getTargetPlatformSuffix(targetPlatform, editorVersion);
-    this.imagePlatformPrefix = ImageTag.getImagePlatformPrefix(process.platform);
+    this.imagePlatformPrefix = ImageTag.getImagePlatformPrefixes(process.platform);
     this.imageRollingVersion = 1;
   }
 
@@ -52,12 +52,14 @@ class ImageTag {
     };
   }
 
-  static getImagePlatformPrefix(platform) {
+  static getImagePlatformPrefixes(platform) {
     switch (platform) {
+      case 'win32':
+        return 'windows';
       case 'linux':
         return 'ubuntu';
       default:
-        throw new Error('The Operating System of this runner is not yet supported.');
+        return '';
     }
   }
 
