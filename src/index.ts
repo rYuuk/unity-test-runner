@@ -3,7 +3,7 @@ import { Action, Docker, ImageTag, Input, Output, ResultsCheck } from './model';
 
 async function run() {
   try {
-    Action.checkCompatibility();
+    //Action.checkCompatibility();
 
     const { workspace, actionFolder } = Action;
     const {

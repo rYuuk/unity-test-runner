@@ -40,7 +40,7 @@ const model_1 = __nccwpck_require__(1359);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            model_1.Action.checkCompatibility();
+            //Action.checkCompatibility();
             const { workspace, actionFolder } = model_1.Action;
             const { editorVersion, customImage, projectPath, customParameters, testMode, artifactsPath, useHostNetwork, sshAgent, gitPrivateToken, githubToken, checkName, } = model_1.Input.getFromUser();
             const baseImage = new model_1.ImageTag({ editorVersion, customImage });
